@@ -43,4 +43,5 @@ setInterval(function() {
     document.getElementById("trollAscension").style.display = timePassed > 10 ? "" : "none"
     document.getElementById("trolledgold").textContent = getNextTrollingGoal().toFixed(5)
     document.getElementById("trolledgolddesc").textContent = getTrollingGoalDesc()
+    if (getTrolling()>=10) location.href = "index.html";
 }, 20)
