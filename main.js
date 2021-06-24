@@ -2,26 +2,26 @@ var began = false
 var timePassed = 0;
 var trollingGoals = 0;
 
-function getTrolling() { return Math.min(10 - 10 / (timePassed + 1), 9.99999) }
-function getTrollingGain() { return began ? (5 / Math.pow(timePassed+1, 2)) : 0 }
-function getTrollingDisplay() { return Math.max(Math.pow(2, getTrolling()) / 768 - 1/3, 0) }
-function updateTrollingGoals() {
-    let t = getTrolling();
-    if (t < 9.5) trollingGoals = 0;
-    else if (t < 10) trollingGoals = 1;
-    else trollingGoals = 2;
-}
-function getNextTrollingGoal() {
-    let t = getTrolling();
-    if (trollingGoals == 0) return 9.5;
-    else return 10; 
-}
-function getTrollingGoalDesc() {
-    if (trollingGoals == 0) return "ascend to a higher plane of existence";
-    else return "actually ascend to a higher plane of existence";
-}
-
 setInterval(function() {
+    function getTrolling() { return Math.min(10 - 10 / (timePassed + 1), 9.99999) }
+    function getTrollingGain() { return began ? (5 / Math.pow(timePassed+1, 2)) : 0 }
+    function getTrollingDisplay() { return Math.max(Math.pow(2, getTrolling()) / 768 - 1/3, 0) }
+    function updateTrollingGoals() {
+        let t = getTrolling();
+        if (t < 9.5) trollingGoals = 0;
+        else if (t < 10) trollingGoals = 1;
+        else trollingGoals = 2;
+    }
+    function getNextTrollingGoal() {
+        let t = getTrolling();
+        if (trollingGoals == 0) return 9.5;
+        else return 10; 
+    }
+    function getTrollingGoalDesc() {
+        if (trollingGoals == 0) return "ascend to a higher plane of existence";
+        else return "actually ascend to a higher plane of existence";
+    }
+    
     if (!began) return;
     timePassed += .005;
     updateTrollingGoals();
