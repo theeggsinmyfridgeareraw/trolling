@@ -3,7 +3,7 @@ var timePassed = 0;
 var trollingGoals = 0;
 
 setInterval(function() {
-    function getTrolling() { return Math.min(10 - 10 / (timePassed + 1), 9.99999) }
+    function getTrolling() { return Math.min(10 - 10 / (timePassed + 1), 10) }
     function getTrollingGain() { return began ? (5 / Math.pow(timePassed+1, 2)) : 0 }
     function getTrollingDisplay() { return Math.max(Math.pow(2, getTrolling()) / 768 - 1/3, 0) }
     function updateTrollingGoals() {
